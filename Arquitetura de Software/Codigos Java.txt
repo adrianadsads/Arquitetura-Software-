@@ -1,0 +1,33 @@
+Códigos Arquitetura de Software
+
+public class Rato extends Roedor {
+ String nome;
+ public Rato(String nome) {
+ this.nome = nome;
+ }
+ public void comer() {
+ System.out.println(nome + " come um pouco de pizza!");
+ }
+ public void resolverLabirinto(int minutos) {
+ System.out.println(nome + " resolveu um labirinto em " + minutos + " minutos!");
+ }
+ public static void main(String[] args) {
+ Rato ratinho = new Rato("Ratinho");
+ ratinho.comer();
+ ratinho.resolverLabirinto(3);
+ ratinho.ordem();
+ }
+}
+
+##########################################
+
+public class Roedor {
+ public static void main(String[] args) {
+ }
+ public void ordem() {
+ System.out.println("Esse animal pertence a ordem dos roedores.");
+ }
+}
+
+########################################
+

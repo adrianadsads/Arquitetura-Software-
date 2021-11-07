@@ -1,0 +1,23 @@
+public void actionPerformed(ActionEvent e) {
+
+				JFileChooser fileChosser = new JFileChooser();// Chamando a tela para salvar o arquivo
+				fileChosser.setDialogTitle("Selecione o Arquivo");
+				fileChosser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+				String senhaInput = JOptionPane.showInputDialog("Digite sua senha");
+				int senha = senhaInput.length();
+				FileNameExtensionFilter filtro = new FileNameExtensionFilter("Arquivo", "txt");
+				fileChosser.setFileFilter(filtro);
+
+				int retonarValor = fileChosser.showOpenDialog(null);
+				if (retonarValor == JFileChooser.APPROVE_OPTION) {
+					File selecioneFile = fileChosser.getSelectedFile();
+					textFile.setText(selecioneFile.getPath());
+					textArquivo.setText(LerArquivo.Ler(selecioneFile.getPath().toString()));
+
+					String texto = textArquivo.getText();
+					textArquivo.setText(Caesar.criptografarCaesar(texto, 26 - senha));
+				}
+
+			}
+		});
